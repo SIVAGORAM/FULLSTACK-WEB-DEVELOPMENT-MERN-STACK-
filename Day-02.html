@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyShow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)"><img style="height: 25px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVUAAACUCAMAAAAUEUq5AAAAwFBMVEX////XGSBYWVvUAABVVljSAABSU1VPUFJGR0lISUzWAAxyc3SFhYfq6uuYmZpFRknpmZv88PDnjY+4uLn++vrsqqynp6j65+f4+PjZ2dnyxMWysrP99fXXEhr10tPutLXwvL15enzzysvkfoD329zgZWjOzs7YIynjdXjlhYfWBxOenp9naGrdTFDeV1pjZGbAwMHroqPgYWTjdnnaNzvk5OTZKzHcREjqnJ6Dg4XbPUGOjpDeWl3fY2XIyMjT1NTeu7EvAAAU4klEQVR4nO1d+0OyOhjGJiCWKaZSJsanmJfUsotW+vX9///V2d5tbANE0Sw78fzwnUAu49m7571scDQtQ4YMGTJkyJAhQ4YMGTJkyJAhQ4YMGTJkyJAhQ4YMGTL8ZNRr392C/x9mLhp+dxv+Z6hVEHJzyPnudvyf0KoiPYcxmn53S/4/sLuomKNAze9uzP8GPZTjcHPBXnuIvrFNPx+CVGysFbrPwfZbzJzX7ujIrOaQjXf5PTQif2fOa2d0izKro57WXgGnmfPaB64rs5orThinIeflZ44sBXxFAMBjxTiv9hT9NOfVOH34/Ivenp1eb3NcpZhbD+a8OgucIuznvK7O3m73OT817qx8+eqzL/pQNvKFuy0OfHYTWAXn5T0jOGYf53VVNozyl9J6mj8xtzKrNLBOMKzNxzlhAVAxGnh9xHjfx3ktjZMT423389PjIKyWCavlzcfVk1nNjZCwZcl5ebmbVM05w6zm/6R9iH1wEFYLW7I6TRQAFYHzqueQm855/S5WaxtMVQV1XjOw33TO63ex6qViNYdatGQIf6dxXr+L1d5oA48q3PegvKU4r9psw31+F6vpTFVJEYTzalUR2uC8fhWrnbSsqgzDNewhsd8NzutXsTpMSqw2gjgvZ0A1YYPz+lWsjlLEVXG0tntBKSbZef0mViOVldS0CmeXnHn9JlYTKyupGU4qFf4mVpMrKykhzXlF8T2sXnz2RbdhlVVW3CKKh16UWR8hFDJtFyGpShDMecXhW1jNn11cE1zclmIPKV0vT8d/7uJLaR/nf8any4dLZWcMq9enZy/KDlpZQZNZPR6zqhT0o4Fjvyo67PY7rfZc0MpLA6WL5enp2YXyJMDqGB7y4kNtRYB/jbfTP6HneFme/Uvavlou11wNs3qSNxnK44/IAS+nZdPI5/OGFWPTDYv+ZpbP5fZEWV1aeaOsNBkqK6NBfKsonC6zRndCNhUhBq9vC6LplUpv0FjcnjeJV8Jq8JDWSYzgXRgWO+9MnFciZVmJxheyLdWioWwbTythVSBvjVWr0xplcYAZ+rF0Yga/GaZ0vwird6Tiqug3raxsSuf9HPh5VCcbcjXWfYffF4GxIg9v3haMoD1lYSBnhvSImF4jVKa/HFviOcqB7dyZaln2nJRpl2Ibyrbnse1WWSW8KuwvLbVBMq0vlnKu1K1hVi9gh2LrtLICU9VJqMEgL1LRlAZ88RX29AWrNaxGZaU9Aa0qq+QnZVLp0lB+DyYxGsRmTHHcCXncvNgmZxnxMx6U1TwBp1Vi7pqRahj01/yJ1BiT7WO/nYgTQ6zelulxcpcMRluxSge5+wx/V4UEIJ/sENbrTskIZU/A2lPmg5kqgPSMsgVo2n3oOQqs9/+RhxdGdgmXtwKFKMH4i/c2wOr9mMCwoM/y4+DHEm2naZydnxbgnqboG2oBhvWH/2YEblZl9YpexVI8COWDstqyOVpis8UOBK9GlaItSHTht1mwg2gENRDTePtjgjIFo5d6K4DJxpdkOndwsGm+LU/LhtwdlwVlgH3Q4wIzfyDbhZBgSqzyI0t0vFvB0HmDu1hw4dIpbAQuh1qGdUe2S3/gjgWuVwqrJWrvBUXMOjKr1SCcGkqb7216KClVUWEVRS6W+E+EANjaVUEYWgPuaUis8j79d2+o1gEmmDfgmS8pAcaZ4CYfCOs5taJAWJeGYoFRVoP+eCBXzZ9yPsoKHWALgcu5Izex+NYf8lsg3TKrl3RgheY4WWWFsho492JV2nTBAdHN0Qr+HAR5f4dstoTtPvMGMQO5sKSxI7PKB3wwV3ltEnXgtkIlj5mOKqxMKHhXJclqiFXaIdyswcaFlysVZMrJTURozbQihlXamHIoKmNrVpJYpR6IjXsajQaTB6FNcGdgWff8BsuyZci6Klh9oQOSKys5TYqPwDzY4FWE9ZKpNr9QkqyGWVWOBYotMXLhjryTy+pFwZB5d0isUt2wGupdeWVlA6tQjQaLpHk+n+ga9eAqA7F6yI/YTkm0W2WV9rPJW2Sp4REwyS9TkAbnB4siuVwmyWqYVe1EUugzQz2xYUgD21IdEO2BUpjVMyrxUpSnycQls0o3QU1HT/Anm5RlxX/VeZkyVwpCrC4NaQgSl2RKEQE8V5ywnrPwiwtrkqxGWJW3gVUpIwKdKdC/S1uxek5JjeTgvLKyNau5EfxZl51cW3VeqiTJCLEKTeXkkIEtDUfq+Dmr8MBscN7zqIwJaz5BVg/LKtV+I9KjQZy5PatygOouYL8IX8F5gQkW4jLInVmVhBX2S8KaKKsHZZXmOnLmwFBPz6qcXkUTK7J5S7swhtadWaXOA4SVyqpwZYmyekBWTRb956O3DtasbM+qnF6FEyvmvGjmVI5KayyrXFcTWRXCCieNx3neH4myekBWT6i8m9EymFizsj2rkpayCrWUWHmw45be1hyHC5q7syqElciqcQ7+GoQ1UVYPySpFTId6O7EapFfRxIplt+c0i8sXQityd2c1EFaavX7cmuwpk2X18KxKCTCHFGduz+rokZ9LEyth8LT6SrBkN7beFNXZndVLLqwflE5K7gOT1fI6Wf0CVuXimSbRlJJVkU+FEyskVgQ9sOKJoZjR7qwGwnrOhv49E9ZkWT0sqwYNV0PF986OrEJ61ULRxEoqfV+OWQokL/Xeg1UurJzNO8ZuUhHgwKyab6ywpY4Uac1KGlZHXdiaRBKruXJ1PnlhiTR0D1aZsAYjnwnrBlk9aAxwykJzU+1U6W2gNKyy9Gqmg2+SEquq+kQvLPgQPmsPVmkp4CLwUoze5Gj1kKxC/ahEi55yrCOvWUnFKg1T/fC8AGqHn4k5raDYtw+rIKxLGPjgH2iEdZ4sqwdklY57qLRLrVSnSlOxytIr6pvEHFYx+lAfEGIFj7UPq/DMJ+MTHv0Dv/f3ybJ6SFZpK2kZWMoj390dWWXzqgApsXqKeSpI64JS8D6s/gumQ2mmehtMKyfI6sFZhVq7eEBlDj8lq/LcoZRYxa6wWkpFy71YFVUVKmO8eJ0oqzuwSre3ZlWjExpBCbO+B6tiTfVEraxE8GFKzdmHVTG1z8JuXhFMktUIq0Zg66zD5dlIQ9gq3F1aO7CeVToXFkx9KG8DpWOVpVeanFiJfQqu5MmRJFZJWSpatZaq7A025Pm+O169Tnr3McQqTOpww4ILSPIxhpKCJpiTToQuLUu/CRcMvcun6dS3gdKxKuzSi7PfizuR/z9sa6tkCkEm6CM8pcCFlZsaF9YkWQ2zqkw/faiS+E+efKAhR1A6pTOF3CBVVv/J08jeXqxyDQ1XEgjeLMMKbEzp5ERWyWSc9CNYjiUxxoWUR4dcaJNkNcTqEnjkU+D0grzjSnRej9dKrs0wx6KLVVaVKW/Bxw6sFrvsiiKxWvCbwCyvPHEtniOR1Qsyc33CKQIC1FdwubDybSqsibKqrLL4R5PoQiAzS0okWSN5eUEXAAWlEtpn5pgczJYuBEtwQqy+SPGrumw9JatsyYqUWInKCrsJWfVRoiXBwOISWaWrLKxr0rorulpEnVOkwirmYamwJsoq7QnDIiiYoYU93Nrxz/kClRNppd01nXPAv1n0RDGTGmKVBhPQrs5erLL0Sk6sRGWF2pBhGZGVTYmsMtbMcv6eLRcKTQlRARMrgaiwJspqZE2guu5PXWUXmoI+NdQTRWOoGYsjad5KTDn0NlBqVmnpOkis3L64yUuorSJNTmZVGxv8ASjCa1LLyjhkppYoq9GVluos5YXSVEt9yX5sSr8Z0vxUmFUWTVzTRVN726oTX1l5kNual5b9vSWzenlvrDlRUCTbL0yRJ8oqk05hjCehSZ9bM6DOiEy0LQtBiGydSp0HPu9eOpCuyXiIvA1EB3BgwCOYOwlYpbU/KRZjM1YikVArK7dW8DBmXjIOQmM4mVG08008h3kSmaQlx8vLW8giBzP5Sx0vZSPPYZgxn/W4bJgWrPwuLKOvDVz9KdOl7/fKNMot3qsuV7som9Z99G0gmIJqSe9NkZVVz/JKP5ycFtXD5UQilFhdnuMbGwZusNL/JXxzefnF2DJMZX2zdjsmJ5Ll7TFvnlySB5S4LhVMsxDlQkFpOWaIvDTBcXXRaFyHxwW/5cd1o/EQvkep0Qh1+VWDtPc9/DYQGnh1SRXcft1bCJLd0czrygIQmrGKea3gtnF+F2lr6U6djng4b4SftPTQuGs8xK/yv7xulNTt6w2kfinskADk4JUfmWlX3cwVkRzfUtNshqesfzk2fWdlA9iM1ZNIrBK/L+zfVCqVeueTvkHcrleGlXqkQn4E2PSdFfpKW3HdxxhYzh/orJvw9qozRDp6nyxGuj7d/8Nt7Z6uFxfTSVHXe8dG7IbvrBTRtOK1283XFYo/kK6mEHEEi17j7jTQ53WaINSaPX2+HxPORJ96dCVHy5vqk+P6LuQNKq431hGq8BcstNos/H4lmCbN+UUcsfYNGJzRdqRNu6dX1xy5VbP1hS9tYo7X9ua3wK88h7yRsMPHlnxkbRA1V+abgsCLLWiLoqmHYwNP7+3c6Ir+Gtoz26uTDgGnPkUoKpz05d7OIIfQvAvjdRai1UWUGCmxWvNCcJs+dK2+wjL9XoXx6qPEdzsTUNc98p/WbDVCo+kM+r6pb/qAztej5g1QSAuAVH+uT2dN73WhT8jQlgMGTE+ODTupsuLHXr6FICWbIfRU73jVuQ6joK2n+14bh0+He1V3qx6+Wo722I1+bD4L0B7mJGIhZPL0FdNJ/x0IE1+8RV2HS6gIed1R/KUfYS3LBMxpiA21PYervaJW/PHJyJGm1Z6DenkHzcl1Bu4uF/sC+K/vXAtI3NmWxWoABQKedMkp1CRQjzWfsPF1wuGkCAOfjt4evVo39vhk1GGlTH8h7VoQQmvr449vh33zSIiF0jNS5vUnxBPdKOvWAJITQx0tDj0SxFZYeMDOnJKqjKfvkA/kSFcP+sq+OTHf6pqRciRoPiFiqjOajdYfe6B/tk744O8PcUlsTeWiQOzlauREm4soY7VG+y29svo6tvKOrgq4Q29xlMoqgTQ6R/xVbY66Ax0yph6Zke7S4c5W/bVe5eBhFB8rNXX8T4WrHrfyCrGsQfro6jVHFBopftEvIn1R0+YJnyQ5FthgD09ujYROxLA8pIkJWbdfmVUnamawxvIqRDqCJ+asOuTy9fSDtvekdV0HB8/SvmKv5vQHWneV+mpfjjZ4BRrnAzG+bkvJqVuMpGVrXPqAeDadS26gyKQPOnrqZj2/wpktSQMc0jDc57N+wnlHgjY8MdUqsClofEzlMIirJvEXehxyw4cLcoOez8g9UrurUV3rV4lYCxGF7n4dYVea9mJfD4e4BW0OccCE6B8YVms9q2hNdvPYlU1ryK22vxurOPW4wdGZzCrpbg+nBj+BVTr4O3rVcQZAcIV4qCRW1xSOusTL0TCVgNNK3HYzPQ8LLNDTJ8yqX3N8v+37To2wOpwwnTp2PIKDbiJdz4GhzUmguP5TgqGXAQRmxP1PRMBPaW3DsF13zno84T7qdXFkhtvFgHAoPCS7dy0sfCWadLm/5lAbbIPB1teWDsMvAwQA/m6kSQIw3h5JjibpkysyzIHVme/YrVrLdvw6Y/WIkysJOSUBndIy/9rSYfRlAA54WqQS6BODbenxyVgSbHwOZlVTYoAWYRV67/jh6ZJSSumMXV/FlA5jXgZgqJLstCmUFaNV/KuRLHaHVk1XwKrMIG4mZvVxTQxybFhI7VSnpKOlw9iXAShaEE1VpHq9MyKOpbXTkG3rfi8qHNW/ztEnrAyOKAV3o5On7WpO0oKkz61WID+o6wv63M6QpsCr3aL23nz4Htk56T7HL/E+QtT5sPfiDcF5XQSlw6TrPIOvd1Y6mg56Od31yGZFj69xb0Kt+NyPfMU095w8Z35U6NEs1Fk/LcRKh2teBmBoFRfs4OGgO6MdVFGENg0c9NhpejKand6aaYjjxJwKYHLdotktbqjp2a4beurezqSSoHmhuvvW5EeRigmdaLX+5qSlvSmqedSfpENw2LsPDfa7XhWlnFpFf/4RQZWAg/4u+p8hWc2+Pqn7dq3leE8I7TvRfIP0xxvfbtn+zV/9Z4T/Chz0KaRidJ6KNMOcfgYLzR7NWVHP+4SrfTnsT3SuLd/3P2/1DrnaDxv6Mhzv0y518MUQNz+GZ+/vp12KVFRvDvn/dl78kBQLs7r7mqgwSLDePKTBTn4Oq59XuTx4vX5yZJFrpd/vv/f7r7RlM/adChJxN1Efvr48IBsVbGk45drItIMv9zzPreihLaCz6Y5yj5pX1Wz649SGEH6bobC+dfhfF7euM+83NWfk9pP+VyVfj8Gr4+iO37/RhjicfIZySRs51YHmrRxPb2nVqV1daN5E8/Wm9rRpGPtzx+m9OtVnHJxhLYWCSs1B2GvXu5pTdJxu1SGrAqZDe7WF0K5pXWVA/m1iua54pLDuLLzjWiI8wFmnrpFnbue0Fp1UpmQQXV10tMcmMTlbx6nRUBttGmnkIzdP9JLYlP6yGJXoKmEV01nF/YL7Ctlae4vS6PrW1XGf9KE1uIFHp6ui3Zpu0wZrNVhlSljFrf0LrGqu33ua1zZO5UusVqsaL9SHWMVSMvI6r6lYxf2gtK7+2GmTMkOnuThuVns3PZ7/rLAtqax2Z8hG9Y0LRSRW232f11KjrOamq9UWa3nWt67eX61WtjbpD8gq+SNm1ZuKFf5EVwNWa5hVb9TXpsWNWafEqoYC3qKsbrmKdX3r6qDKWBeOXQFqiJXb200iXozVQQV7BrJ+pYvd7sYARmb1KTic/BGy1ba2jX9Z37qbCZm6aruU1dVuK7gPBjKsSLvJDNSE2ZavT/S25j1q2nsH+/J3WG45umHrhRJBBv2AXlJaTuHpT1p9AGHB8BW8VRPfYgtaeesGkdZp8zn5X3CsilMyzePri8TrfDWcFiyxtMkjBrZleySkxLt8PHRrHRh55M8tYm0/uKQ2E3OFjk8vh/+y6Y92cxsNiG1dy4MGdWC73YG3Dmvpp8O/CM4np0Dv+78MKOGzW/dFsB93WbG/FjUv/YrKBHxy674MO78KFY9h7lP98lYJboYMGTJkyJAhQ4YMGTJkyJAhQ4YMR4n/ACKp4U0YuJsPAAAAAElFTkSuQmCC" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Stream</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Plays</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Activities</a>
+        </li>
+        
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1748864272305_summercampaignwebbanner.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1744877848242_revplaycard1240x300.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://assets-in-gm.bmscdn.com/promotions/cms/creatives/1747808823245_akorganicweb.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="card mb-3">
+<div class="card-group">
+  <div class="card">
+    <img height="400px width=25px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-Njk4LjZLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00375421-ljzywuhdyp-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Thug Life</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img height="400px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@like_202006280402.png,lx-24,ly-617,w-29,l-end:l-text,ie-MTU4LjRLIExpa2Vz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00363347-rsrbdvpcvr-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">House Full</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img height="400px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC40LzEwICA1LjNLIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00418461-ufpzdkqhqv-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Bhairava</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+<div class="card-group">
+  <div class="card">
+    <img height="400px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC43LzEwICA2M0sgVm90ZXM%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00419530-hnbhjgrrnp-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Mission Impossible</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img height="400px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC41LzEwICA0MC4zSyBWb3Rlcw%3D%3D,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00432143-huafzpgqzl-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Final Destination</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img height="400px" src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-image,i-discovery-catalog@@icons@@star-icon-202203010609.png,lx-24,ly-615,w-29,l-end:l-text,ie-OC4xLzEwICAzLjZLIFZvdGVz,fs-29,co-FFFFFF,ly-612,lx-70,pa-8_0_0_0,l-end/et00383498-rtqtdbfvca-portrait.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">#single</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<div class="card">
+  </div>
+  <img src="https://assets-in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/stream-leadin-web-collection-202210241242.png" class="card-img-bottom" alt="...">
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00435903-zzwkyzwjgm-portrait.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">The Penguin Lessons</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00418746-hvaeqkdfpq-portrait.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Paddington</h5>
+        <p class="card-text">This is a short card.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:l-image,i-discovery-catalog@@icons@@bms_premiere_v1.png,t-false,lfo-bottom_left,l-end/et00447961-xejckbdnfy-portrait.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Sinners</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+
+    </div>
+  </div>
+</div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+
+<footer class="bg-dark text-light py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Company Info -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="mb-4">About Us</h5>
+                <p class="mb-4">We are dedicated to providing innovative solutions that help businesses grow and succeed
+                    in the digital age.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon bg-primary"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon bg-info"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon bg-danger"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon bg-primary"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="footer-link">Home</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">About</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Services</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Portfolio</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="col-lg-2 col-md-6">
+                <h5 class="mb-4">Services</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="footer-link">Web Design</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Development</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Marketing</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Consulting</a></li>
+                    <li class="mb-2"><a href="#" class="footer-link">Analytics</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-4 col-md-6">
+                <h5 class="mb-4">Contact Info</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        123 Business Street, New York, NY 10001
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-phone me-2"></i>
+                        <a href="tel:+1234567890" class="footer-link">+1 (234) 567-890</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-envelope me-2"></i>
+                        <a href="mailto:contact@example.com" class="footer-link">contact@example.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <hr class="mb-4">
+                <div class="text-center">
+                    <p class="mb-0">&copy; 2024 Your Company. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+=
+</body>
+</html>
