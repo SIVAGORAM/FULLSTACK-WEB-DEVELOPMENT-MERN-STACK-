@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="Day-03.css">
+
+    <style>
+        body {
+    background: #f3f3f3;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 400px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 32px 24px;
+}
+
+
+form label {
+    font-weight: bold;
+    color: #232f3e;
+    margin-top: 12px;
+    display: block;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px 8px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background: #596abd;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 12px 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #4b80c1;
+}
+
+form p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 12px 0 0 0;
+    text-align: center;
+}
+
+form h5 {
+    text-align: center;
+    color: #232f3e;
+    margin: 16px 0 4px 0;
+}
+
+form a {
+    display: block;
+    text-align: center;
+    color: #007185;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <img src="https://m.media-amazon.com/images/G/01/AmazonBusiness/Logo/AB-Logo-Product-UI/PNG/AB_logo_TwoColorDark_338x62._CB540473820_.png" alt="">
+            <h1>amazon Login Page</h1>
+            <h2>Sign in with business credentials</h2>
+            <div>
+                <form action="">
+                <label for="">Email or mobile Phone number</label>
+                <input class="email" type="text" placeholder="email or Mobile Phone number" maxlength="12" minlength="10">
+                
+                <label for="">Password</label>
+                <input class="pass" type="password" placeholder="password" maxlength="16" minlength="8">
+                <button>Sign in</button>   
+                <p>By continuing, you agree to Amazon’s<a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=GLSBYFE9MGKKQXXM">Conditions of Use,Privacy Notice,</a>and the <a href="https://www.amazon.com/business/register/terms-and-conditions">Amazon Business Terms and Conditions.</a></p> 
+                <p>-----------------------------------------------------------------------------------</p>
+                <h5>Shopping for home?</h5>
+                <a href="https://www.amazon.com">Go to Amazon.com</a>
+                <p>---------------------------- Shopping for home? --------------------------</p>
+                <button>Create your free business account</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
