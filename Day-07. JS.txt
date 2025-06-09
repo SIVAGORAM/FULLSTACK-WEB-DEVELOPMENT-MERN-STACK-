@@ -1,0 +1,165 @@
+avaScript Fundamentals: In-Depth Notes with Theory, Practical Examples, and Code
+
+🔹 How Data is Stored in JavaScript
+
+JavaScript stores data in memory using variables, which can hold values like numbers, strings, objects, arrays, etc. Memory in JavaScript is managed automatically using memory allocation and garbage collection.
+
+🔹 Ways to Store Data
+
+▪ Primitive Data Types:
+
+String: Textual data
+
+let name = "Siva";
+console.log(typeof name); // "string"
+
+Number: Integer or floating-point
+
+let age = 25;
+console.log(typeof age); // "number"
+
+Boolean: true or false
+
+let isActive = true;
+console.log(typeof isActive); // "boolean"
+
+Null: Represents intentional absence
+
+let salary = null;
+console.log(salary); // null
+
+Undefined: A variable declared but not assigned a value
+
+let job;
+console.log(job); // undefined
+
+Symbol: Unique and immutable
+
+const sym1 = Symbol("id");
+const sym2 = Symbol("id");
+console.log(sym1 === sym2); // false
+
+BigInt: For large integers
+
+const bigNum = 1234567890123456789012345678901234567890n;
+console.log(typeof bigNum); // "bigint"
+
+▪ Non-Primitive Data Types:
+
+Object
+
+let user = {
+  name: "Siva",
+  age: 25
+};
+console.log(user.name); // "Siva"
+
+Array
+
+let skills = ["HTML", "CSS", "JavaScript"];
+console.log(skills[1]); // "CSS"
+
+Function
+
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+console.log(greet("Teja")); // "Hello, Teja!"
+
+🔹 Storing Single and Multiple Values
+
+Single value: Use primitive types
+
+let city = "Hyderabad";
+console.log(city);
+
+Multiple values: Use arrays or objects
+
+let cities = ["Hyderabad", "Bangalore", "Chennai"];
+for (let i = 0; i < cities.length; i++) {
+  console.log(cities[i]);
+}
+
+🔹 var, let, and const
+
+var x = 10;
+if (true) {
+  var x = 20; // Same variable
+  console.log(x); // 20
+}
+console.log(x); // 20
+
+let y = 10;
+if (true) {
+  let y = 20; // New variable in block
+  console.log(y); // 20
+}
+console.log(y); // 10
+
+const z = 30;
+// z = 40; // ❌ Error: Assignment to constant variable
+
+🔹 Scope in JavaScript
+
+• Global Scope
+
+Accessible from anywhere
+
+let a = 10;
+function print() {
+  console.log(a);
+}
+print(); // 10
+
+• Block Scope
+
+Variables inside {}
+
+{
+  let b = 20;
+  console.log(b); // Works
+}
+// console.log(b); // ❌ Error: b is not defined
+
+🔹 What is Hoisting?
+
+console.log(x); // undefined
+var x = 5;
+
+// Hoisting with let and const
+console.log(a); // ❌ ReferenceError
+let a = 10;
+
+🔹 Memory Creation & Execution Phases
+
+console.log(name);
+var name = "Teja";
+
+Memory Creation Phase: name is hoisted and assigned undefined
+
+Execution Phase: value "Teja" is assigned
+
+🔹 undefined and Temporal Dead Zone (TDZ)
+
+console.log(value); // ❌ ReferenceError (TDZ)
+let value = 100;
+
+TDZ is the time between entering scope and variable initialization with let or const
+
+🔹 Types of Errors
+
+🛑 Reference Error
+
+console.log(notDeclared); // ReferenceError
+
+❗ Type Error
+
+let num = 5;
+num(); // TypeError: num is not a function
+
+🚫 Syntax Error
+
+let a = ; // SyntaxError: Unexpected token ;
+
+
+
