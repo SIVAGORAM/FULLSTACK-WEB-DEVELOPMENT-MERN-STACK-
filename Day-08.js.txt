@@ -1,0 +1,531 @@
+🧠 1. What is a Function in JavaScript?
+A function is a reusable block of code designed to perform a particular task. In JavaScript, functions are first-class objects, meaning they can be stored in variables, passed as arguments, and returned from other functions.
+
+✏️ 2. Syntax of a Function
+function functionName(parameters) {
+  // Code to be executed
+}
+
+Example:
+function greet(name) {
+  console.log("Hello, " + name);
+}
+greet("Siva");
+
+
+🔄 3. Types of Functions
+
+✅ a. Named Functions
+Declared with a name and can be reused.
+Example:-
+function add(a, b) {
+  return a + b;
+}
+
+✅ b. Anonymous Functions
+Functions without a name, often used as arguments or assigned to variables.
+Example:-
+let multiply = function(a, b) {
+  return a * b;
+};
+
+✅ c. Arrow Functions (ES6)
+Shorter syntax and no own this.
+Example:-
+const divide = (a, b) => a / b;
+
+If only one parameter:
+const square = x => x * x;
+
+✅ d. Immediately Invoked Function Expression (IIFE)
+Executes as soon as it's defined.
+Example:-
+(function() {
+  console.log("IIFE is running");
+})();
+
+
+⚙️ 4. Function Parameters and Arguments
+Parameters: Variables listed in function definition.
+
+Arguments: Values passed during function call.
+You can have default parameters:
+Example:-
+function greet(name = "Guest") {
+  console.log("Hello, " + name);
+}
+greet(); // Hello, Guest
+
+
+🧰 5. Return Statement
+Used to return a value from a function.
+Example:-
+function sum(a, b) {
+  return a + b;
+}
+let result = sum(5, 3); // result = 8
+
+📦 6. Function Scope
+Local Scope: Variables declared inside a function are only accessible there.
+
+Global Scope: Variables declared outside any function are global.
+Example:-
+let x = 10;
+function show() {
+  let y = 20;
+  console.log(x); // 10
+  console.log(y); // 20
+}
+console.log(y); // Error: y is not defined
+
+🕹️ 7. Function Hoisting
+Function declarations are hoisted to the top of their scope, meaning you can call them before their definition.
+Example:-
+sayHello(); // Works
+function sayHello() {
+  console.log("Hello!");
+}
+
+But function expressions are not hoisted:
+Example:-
+greet(); // Error
+var greet = function() {
+  console.log("Hi");
+};
+
+🔄 8. Callback Functions
+Example:-
+
+A function passed as an argument to another function, often used in asynchronous operations like event handling or fetching data.
+function processData(data, callback) {
+  console.log("Processing " + data);
+  callback();
+}
+
+processData("File", function() {
+  console.log("Callback executed.");
+});
+
+🌐 9. Functions in Web Development
+🔹 Event Handling
+Example:-
+document.getElementById("btn").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+
+
+🔹 DOM Manipulation
+Example:-
+function changeText() {
+  document.getElementById("demo").innerText = "Text Updated!";
+}
+
+🔹 Form Validation
+Example:-
+function validateForm() {
+  let name = document.forms["myForm"]["username"].value;
+  if (name === "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+
+
+🔹 API Calls with Fetch
+Example:-
+function fetchData() {
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(data => console.log(data));
+}
+
+🧪 Practice Example:-
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Welcome</p>
+<button onclick="changeText()">Click me</button>
+
+<script>
+  function changeText() {
+    document.getElementById("demo").innerHTML = "Hello, JavaScript!";
+  }
+</script>
+
+</body>
+</html>
+
+Examples:-
+
+⚙️ Version 1: var inside function block (hoisting)
+
+var a = 10;
+var b = 20;
+
+function getValue() {
+  let c = 30;
+
+  if (true) {
+    console.log("c inside if:", c); // ✅ 30
+    var a = 20;  // this `a` shadows the outer var `a` inside the function
+    var b = 30;  // same for `b`
+    console.log("b inside if:", b); // ✅ 30
+  }
+
+  console.log("c outside if:", c);  // ✅ 30
+}
+
+console.log("global a:", a); // ✅ 10
+getValue();
+
+✅ Output:
+
+global a: 10
+c inside if: 30
+b inside if: 30
+c outside if: 30
+
+- var is function-scoped, not block-scoped.
+
+🔐 Version 2: let and const inside block
+
+var a = 10;
+
+function testScope() {
+  if (true) {
+    let x = 100;
+    const y = 200;
+    console.log("Inside block - x:", x); // ✅ 100
+    console.log("Inside block - y:", y); // ✅ 200
+  }
+
+  // x and y are block scoped — not accessible here
+  // console.log(x); // ❌ ReferenceError
+  // console.log(y); // ❌ ReferenceError
+}
+
+testScope();
+
+✅ Output:
+
+Inside block - x: 100
+Inside block - y: 200
+
+
+📦 Version 3: Variable Hoisting with var
+
+function hoistVar() {
+  console.log("a before declaration:", a); // ✅ undefined (due to hoisting)
+  var a = 50;
+  console.log("a after declaration:", a); // ✅ 50
+}
+hoistVar();
+
+✅ Output:
+a before declaration: undefined
+a after declaration: 50
+
+var declarations are hoisted, but not initialized.
+
+
+🔥 Version 4: Hoisting with let or const
+function hoistLet() {
+  // console.log(x); // ❌ ReferenceError: Cannot access 'x' before initialization
+  let x = 5;
+}
+hoistLet();
+
+let and const are hoisted but remain in the Temporal Dead Zone until initialized.
+
+🌀 Version 5: Same variable name in global and function scope
+
+var a = 100;
+
+function shadowExample() {
+  var a = 200;
+  console.log("Function-scoped a:", a); // ✅ 200
+}
+shadowExample();
+console.log("Global-scoped a:", a); // ✅ 100
+
+✅ Output:
+Function-scoped a: 200
+Global-scoped a: 100
+
+Function-scoped variables shadow global ones with the same name.
+
+🧠 Version 6: Mixing var, let, and const
+var a = 1;
+
+function mixedScope() {
+  var a = 2;
+  let b = 3;
+  const c = 4;
+
+  if (true) {
+    var a = 5;   // Re-declares `a` in function scope
+    let b = 6;   // New block-scoped `b`
+    const c = 7; // New block-scoped `c`
+
+    console.log("Inside block: a =", a); // ✅ 5
+    console.log("Inside block: b =", b); // ✅ 6
+    console.log("Inside block: c =", c); // ✅ 7
+  }
+
+  console.log("Outside block: a =", a); // ✅ 5
+  console.log("Outside block: b =", b); // ✅ 3
+  console.log("Outside block: c =", c); // ✅ 4
+}
+
+mixedScope();
+
+✅ Output:
+Inside block: a = 5
+Inside block: b = 6
+Inside block: c = 7
+Outside block: a = 5
+Outside block: b = 3
+Outside block: c = 4
+
+var changes affect the whole function, while let/const changes only affect the block.
+
+🧪 Version 7: Trying to reassign const
+
+const z = 100;
+// z = 200; // ❌ TypeError: Assignment to constant variable
+console.log("z:", z); // ✅ 100
+
+📚 Summary Table:-
+| Keyword | Scope    | Hoisted           | Re-declarable | Re-assignable |
+| ------- | -------- | ----------------- | ------------- | ------------- |
+| `var`   | Function | ✅ Yes (undefined) | ✅ Yes         | ✅ Yes         |
+| `let`   | Block    | ✅ Yes (TDZ)       | ❌ No          | ✅ Yes         |
+| `const` | Block    | ✅ Yes (TDZ)       | ❌ No          | ❌ No          |
+
+
+✅ ORIGINAL CODE (Modified for clarity and fix errors)
+
+Ex:-
+var a = 10;
+var b = 20;
+
+function getvalue() {
+    let c = 30;
+
+    if (false) {
+        console.log(c); // This block won't run
+        var a = 20;
+        var b = 30;
+        console.log("inside a", a);
+        console.log("inside b", b);
+    }
+
+    if (true) {
+        const name = "ravi";
+        console.log("Inside block:", name);
+
+        if (true) {
+            console.log(username); // ❌ ReferenceError
+            const username = "RAM";
+            console.log(username); 
+        }
+    }
+}
+
+console.log(a);        // ✅ 10
+console.log(getvalue()); 
+
+❌ Output:
+10
+Inside block: ravi
+Uncaught ReferenceError: Cannot access 'username' before initialization
+
+⚠️ WHY?
+Because const username is in Temporal Dead Zone until it's declared. So accessing it before initialization causes a ReferenceError.
+
+Now, let's walk through multiple learning examples:
+
+
+✅ Example 1: var inside block vs function
+
+function example1() {
+    if (true) {
+        var x = 10;
+    }
+    console.log("x:", x); // ✅ x is accessible: 10
+}
+example1();
+🟩 Output:
+x: 10
+var is function-scoped, not block-scoped.
+
+✅ Example 2: let is block scoped
+function example2() {
+    if (true) {
+        let y = 20;
+    }
+    // console.log("y:", y); // ❌ ReferenceError
+}
+example2();
+
+
+🟥 Output:
+Uncaught ReferenceError: y is not defined
+
+✅ Example 3: const is also block scoped
+function example3() {
+    {
+        const z = 30;
+        console.log("Inside block: z =", z); // ✅ 30
+    }
+    // console.log("Outside block: z =", z); // ❌ ReferenceError
+}
+example3();
+
+🟩 Output:
+Inside block: z = 30
+
+✅ Example 4: Hoisting with var
+
+function example4() {
+    console.log("before:", a); // ✅ undefined
+    var a = 100;
+    console.log("after:", a);  // ✅ 100
+}
+example4();
+
+🟩 Output:
+before: undefined
+after: 100
+
+
+❌ Example 5: Hoisting with let (TDZ)
+javascript
+Copy code
+function example5() {
+    // console.log(b); // ❌ ReferenceError
+    let b = 200;
+    console.log("b:", b);
+}
+example5();
+
+🟥 Output:
+Uncaught ReferenceError: Cannot access 'b' before initialization
+
+✅ Example 6: const Reassignment Error
+function example6() {
+    const x = 10;
+    // x = 20; // ❌ TypeError: Assignment to constant variable
+    console.log(x);
+}
+example6();
+
+🟥 Output:
+Uncaught TypeError: Assignment to constant variable.
+
+✅ Example 7: Shadowing Global Variables
+javascript
+Copy code
+var globalA = 50;
+
+function shadow() {
+    var globalA = 100;
+    console.log("Function globalA:", globalA); // ✅ 100
+}
+shadow();
+console.log("Real globalA:", globalA); // ✅ 50
+
+🟩 Output:
+Function globalA: 100
+Real globalA: 50
+
+
+✅ Example 8: Safe Nested Block Scope
+javascript
+Copy code
+function safeScope() {
+    const name = "Ravi";
+    if (true) {
+        const name = "Teja"; // new block scoped
+        console.log("Inner name:", name); // ✅ Teja
+    }
+    console.log("Outer name:", name); // ✅ Ravi
+}
+safeScope();
+
+🟩 Output:
+Inner name: Teja
+Outer name: Ravi
+
+
+✅ Example 9: Combining All Concepts
+javascript
+Copy code
+var m = 5;
+
+function megaScope() {
+    var m = 10;
+    let n = 15;
+
+    if (true) {
+        let n = 20; // block-scoped
+        const o = 25;
+        console.log("Inside block - m:", m); // ✅ 10
+        console.log("Inside block - n:", n); // ✅ 20
+        console.log("Inside block - o:", o); // ✅ 25
+    }
+
+    console.log("Outside block - m:", m); // ✅ 10
+    console.log("Outside block - n:", n); // ✅ 15
+    // console.log("o:", o); // ❌ ReferenceError
+}
+
+megaScope();
+console.log("Global m:", m); // ✅ 5
+🟩 Output:
+
+yaml
+Copy code
+Inside block - m: 10
+Inside block - n: 20
+Inside block - o: 25
+Outside block - m: 10
+Outside block - n: 15
+Global m: 5
+
+
+📘 Summary to Remember:
+
+| Feature      | `var`                         | `let`     | `const`   |
+| ------------ | ----------------------------- | --------- | --------- |
+| Scope        | Function                      | Block     | Block     |
+| Hoisted      | Yes (initialized `undefined`) | Yes (TDZ) | Yes (TDZ) |
+| Redeclarable | Yes                           | No        | No        |
+| Reassignable | Yes                           | Yes       | No        |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
