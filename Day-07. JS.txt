@@ -1,4 +1,4 @@
-avaScript Fundamentals: In-Depth Notes with Theory, Practical Examples, and Code
+JavaScript Fundamentals: In-Depth Notes with Theory, Practical Examples, and Code
 
 🔹 How Data is Stored in JavaScript
 
