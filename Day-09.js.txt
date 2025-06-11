@@ -1,0 +1,248 @@
+📦 JavaScript Arrays – Storing Multiple Values
+✅ What is an Array?
+An array is a special variable that can hold more than one value at a time.
+
+Elements in an array are ordered and indexed, starting from 0.
+
+✅ Array Syntax:
+let fruits = ["Apple", "Banana", "Cherry"];
+
+✅ Accessing Elements:
+console.log(fruits[0]); // "Apple"
+
+✅ Common Array Methods:
+push() – Add at end
+
+pop() – Remove from end
+
+unshift() – Add at beginning
+
+shift() – Remove from beginning
+
+length – Returns number of items
+
+splice() – Add/Remove at specific index
+
+forEach() – Loop through array
+
+✅ Example:
+
+let colors = ["Red", "Green"];
+colors.push("Blue");
+console.log(colors); // ["Red", "Green", "Blue"]
+
+
+🧱 Objects in JavaScript – Key-Value Pairs
+✅ What is an Object?
+An object is a collection of key-value pairs, used to represent and organize complex data.
+
+✅ Object Syntax:
+let person = {
+  name: "Alice",
+  age: 25,
+  isStudent: true
+};
+
+✅ Accessing Values:
+console.log(person.name); // Dot notation
+console.log(person["age"]); // Bracket notation
+
+✅ Modifying Object:
+person.age = 26;
+person["isStudent"] = false;
+
+
+✅ Adding New Property:
+person.country = "India";
+
+✅ Deleting Property:
+delete person.isStudent;
+
+
+🔗 Array of Objects – Managing Structured Data
+✅ What is Array of Objects?
+An array of objects allows you to store multiple records or items where each item is an object with structured data.
+
+✅ Example:
+let students = [
+  { name: "John", age: 21 },
+  { name: "Jane", age: 22 },
+  { name: "Bob", age: 20 }
+];
+
+✅ Accessing Values:
+console.log(students[1].name); // Jane
+
+
+🔑 Key-Value Pairs – Foundation for Objects & APIs
+✅ Key-Value Pairs in JavaScript:
+Used in objects, Maps, and APIs (JSON).
+
+let book = {
+  title: "Atomic Habits",
+  author: "James Clear"
+};
+
+Keys must be unique strings; values can be any type (string, number, boolean, object, array, etc.).
+
+🔄 Accessing, Updating, Adding & Removing in Arrays & Objects
+
+| Action       | Syntax / Method        | Example Result              |
+| ------------ | ---------------------- | --------------------------- |
+| Access       | `arr[index]`           | `arr[1] // "Green"`         |
+| Update       | `arr[1] = "Yellow"`    | `["Red", "Yellow"]`         |
+| Add (end)    | `arr.push("Blue")`     | `["Red", "Yellow", "Blue"]` |
+| Add (start)  | `arr.unshift("Pink")`  | `["Pink", "Red", "Yellow"]` |
+| Remove (end) | `arr.pop()`            | Removes last item           |
+| Remove (any) | `arr.splice(index, 1)` | Removes from specific index |
+
+
+✅ Objects:
+
+| Action | Syntax                   | Example                  |
+| ------ | ------------------------ | ------------------------ |
+| Access | `obj.key` / `obj["key"]` | `person.name // "Alice"` |
+| Update | `obj.key = value`        | `person.age = 30`        |
+| Add    | `obj.newKey = value`     | `person.city = "Delhi"`  |
+| Remove | `delete obj.key`         | `delete person.age`      |
+
+
+🧪 Practical Example:
+
+let inventory = [
+  { item: "Laptop", quantity: 10 },
+  { item: "Mouse", quantity: 50 }
+];
+
+// Add new item
+inventory.push({ item: "Keyboard", quantity: 20 });
+
+// Update quantity
+inventory[0].quantity = 8;
+
+// Remove last item
+inventory.pop();
+
+console.log(inventory);
+
+Example for Array of Objects:-
+
+const moviename = [
+  {
+    movie: "Major",
+    hero: "Adivi Sesh",
+    director: "Sashi Kiran Tikka",
+    year: 2022,
+    rating: 8.2
+  },
+  {
+    movie: "RRR",
+    hero: "NTR Jr",
+    director: "S. S. Rajamouli",
+    year: 2022,
+    rating: 8.0
+  },
+  {
+    movie: "Pushpa",
+    hero: "Allu Arjun",
+    director: "Sukumar",
+    year: 2021,
+    rating: 7.6
+  },
+  {
+    movie: "Baahubali",
+    hero: "Prabhas",
+    director: "S. S. Rajamouli",
+    year: 2015,
+    rating: 8.1
+  },
+  {
+    movie: "Vikram",
+    hero: "Kamal Haasan",
+    director: "Lokesh Kanagaraj",
+    year: 2022,
+    rating: 8.3
+  }
+];
+
+✅ Accessing Operations:
+1. Access the name of the third movie:
+
+console.log(moviename[2].movie); // "Pushpa"
+
+
+✅ 1. Access a specific movie object using index
+
+console.log(moviename[0]); 
+// Output: { movie: 'Major', hero: 'Adivi Sesh', ... }
+
+✅ 2. Access a specific property from a specific object
+
+console.log(moviename[1].hero); 
+// Output: "NTR Jr"
+
+console.log(moviename[4].rating); 
+// Output: 8.3
+
+
+✅ 3. Access the last item in the array dynamically
+
+console.log(moviename[moviename.length - 1]); 
+// Output: { movie: "Vikram", ... }
+
+
+✅ 4. Access all movie names using indexing inside a loop
+
+for (let i = 0; i < moviename.length; i++) {
+  console.log(moviename[i].movie);
+}
+
+
+✅ 5. Access a nested property dynamically using a variable index
+
+let index = 2;
+console.log(moviename[index].director); 
+// Output: "Sukumar"
+
+
+✅ 6. Access only ratings of first 3 movies
+
+console.log(moviename[0].rating); // 8.2
+console.log(moviename[1].rating); // 8.0
+console.log(moviename[2].rating); // 7.6
+
+
+✅ 7. Update a property using index
+
+moviename[3].rating = 8.5;
+console.log(moviename[3]);
+// Rating of Baahubali is now 8.5
+
+
+✅ 8. Delete a property from a specific object
+
+delete moviename[0].director;
+console.log(moviename[0]);
+
+
+✅ 9. Check if a movie has a rating above 8 using index
+
+if (moviename[1].rating > 8) {
+  console.log("RRR is highly rated");
+} else {
+  console.log("RRR rating is below 8");
+}
+
+
+✅ 10. Access multiple properties using index
+
+let i = 4;
+console.log(`Movie: ${moviename[i].movie}, Hero: ${moviename[i].hero}`);
+// Output: Movie: Vikram, Hero: Kamal Haasan
+
+
+
+
+
+
+
