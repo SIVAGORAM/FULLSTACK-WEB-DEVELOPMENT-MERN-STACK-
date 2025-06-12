@@ -1,0 +1,385 @@
+📌 1. Functions – How to Write Clean, Reusable Code 🧠
+🔹 What is a Function?
+A function is a block of code that performs a specific task. You define it once and can reuse it whenever needed.
+
+🔹 Why Use Functions?
+Avoid code repetition (DRY Principle – Don’t Repeat Yourself)
+
+Improve readability and maintainability
+
+Organize code logically
+
+Reusability
+
+🔹 Function Syntax (JavaScript):
+// Function Declaration
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// Function Call
+console.log(greet("Siva")); // Output: Hello, Siva!
+
+🔹 Types of Functions:
+Named Functions
+
+Anonymous Functions
+
+Arrow Functions (ES6+)
+
+const greet = (name) => `Hello, ${name}`;
+
+🔹 Parameters vs Arguments
+Parameter: Placeholder in function definition
+
+Argument: Actual value passed to function
+
+🔹 Return Statement
+Used to send back the output from the function.
+
+function add(a, b) {
+  return a + b;
+}
+
+📌 2. Array of Objects – Real-world Data Handling Like a Pro 🗃️
+🔹 What is an Array of Objects?
+An array of objects is a collection where each element is an object – ideal for storing multiple records.
+
+  const students = [
+  { name: "Siva", age: 22 },
+  { name: "Teja", age: 21 },
+  { name: "Varun", age: 23 },
+];
+
+🔹 Accessing Object Data:
+console.log(students[0].name); // Output: Siva
+
+🔹 Use Cases:
+User data from API
+
+Product listings
+
+Employee records
+
+🔹 Loop Through Array of Objects:
+
+students.forEach(student => {
+  console.log(student.name);
+});
+
+
+📌 3. For Loops vs forEach vs map – When to Use What and WHY 🔁
+
+| Loop Type   | Mutates Array | Returns New Array | Can Use `break/continue` | Best Use Case                   |
+| ----------- | ------------- | ----------------- | ------------------------ | ------------------------------- |
+| `for` loop  | No            | No                | ✅ Yes                    | Full control, conditional exits |
+| `forEach()` | No            | No                | ❌ No                     | Just performing actions         |
+| `map()`     | No            | ✅ Yes             | ❌ No                     | Transforming data               |
+
+
+
+🔹 for loop (Traditional)
+for (let i = 0; i < students.length; i++) {
+  console.log(students[i].name);
+}
+
+✅ Use When:
+
+You need index
+
+You want early exit with break
+
+Performance matters
+
+🔹 forEach()
+
+students.forEach((student) => {
+  console.log(student.name);
+});
+
+✅ Use When:
+
+You just want to perform an action on each item
+
+Not expecting a return value
+
+❌ Can’t break/return early
+
+🔹 map()
+
+const names = students.map((student) => student.name);
+console.log(names); // [ "Siva", "Teja", "Varun" ]
+
+✅ Use When:
+
+You want to transform an array
+
+Always returns a new array
+
+❌ Not meant for side effects like console logging
+
+📌 4. The Key Differences with Real-time Use Cases 💡
+  
+| Scenario                                               | Best Approach                           | Why                                 |
+| ------------------------------------------------------ | --------------------------------------- | ----------------------------------- |
+| Logging each user name                                 | `forEach()`                             | Side-effect (logging) only          |
+| Creating a new array of names                          | `map()`                                 | You want a new transformed array    |
+| Breaking loop on condition (e.g., first adult student) | `for` loop                              | `break` or `return` needed          |
+| Filtering                                              | `filter()` method (not discussed above) | Returns array based on condition    |
+| Modifying values directly                              | `for` or `map()`                        | Based on whether mutation is needed |
+
+  
+🧠 Real-World Analogy
+
+| Real-world Scenario                      | Programming Equivalent |
+| ---------------------------------------- | ---------------------- |
+| Calling someone to do a task             | Function               |
+| Directory of employees                   | Array of Objects       |
+| Go through every employee and print name | forEach()              |
+| Create a list of employee emails         | map()                  |
+| Stop after finding first employee in HR  | for loop               |
+
+  
+example programs using map() in JavaScipt:-
+
+🔹 1. Convert Celsius to Fahrenheit
+
+const celsius = [0, 10, 20, 30];
+const fahrenheit = celsius.map(temp => (temp * 9/5) + 32);
+
+console.log(fahrenheit); // [32, 50, 68, 86]
+
+🔹 2. Extract Names from an Array of Objects
+
+const users = [
+  { name: "Siva", age: 22 },
+  { name: "Teja", age: 21 },
+  { name: "Varun", age: 23 },
+];
+
+const names = users.map(user => user.name);
+console.log(names); // ["Siva", "Teja", "Varun"]
+
+
+🔹 3. Square Each Number
+
+const numbers = [2, 4, 6, 8];
+const squares = numbers.map(num => num * num);
+
+console.log(squares); // [4, 16, 36, 64]
+
+
+🔹 4. Add a New Property to Each Object
+
+const students = [
+  { name: "Siva", marks: 85 },
+  { name: "Teja", marks: 78 },
+];
+
+const updatedStudents = students.map(student => ({
+  ...student,
+  status: student.marks >= 80 ? "Passed" : "Try Again"
+}));
+
+console.log(updatedStudents);
+/*
+[
+  { name: "Siva", marks: 85, status: "Passed" },
+  { name: "Teja", marks: 78, status: "Try Again" }
+]
+*/
+
+
+
+
+🔹 5. Create an HTML List from Data
+
+const fruits = ["Apple", "Banana", "Mango"];
+
+const fruitListItems = fruits.map(fruit => `<li>${fruit}</li>`);
+console.log(fruitListItems.join('\n'));
+
+// Output:
+// <li>Apple</li>
+// <li>Banana</li>
+// <li>Mango</li>
+
+🔹 6. Capitalize First Letter of Each Word
+
+const words = ["siva", "teja", "varun"];
+
+const capitalized = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+console.log(capitalized); // ["Siva", "Teja", "Varun"]
+
+
+🔹 7. Map Product Prices to Apply Discount
+
+const products = [
+  { name: "Laptop", price: 1000 },
+  { name: "Phone", price: 500 }
+];
+
+const discounted = products.map(p => ({
+  ...p,
+  price: p.price * 0.9  // 10% discount
+}));
+
+console.log(discounted);
+/*
+[
+  { name: "Laptop", price: 900 },
+  { name: "Phone", price: 450 }
+]
+*/
+
+Example:
+
+const arr = [{ name: "siva" }, { name: "ram" }, { name: "ravi" }];
+
+const result = arr.map(function (item, index, fullArray) {
+  console.log("Item:", item, "Index:", index, "FullArray:", fullArray);
+  return item.name.toUpperCase();
+});
+
+console.log("Result:", result);
+
+🟢 Output:
+Item: {name: "siva"} Index: 0 ...
+Item: {name: "ram"} Index: 1 ...
+Item: {name: "ravi"} Index: 2 ...
+Result: [ 'SIVA', 'RAM', 'RAVI' ]
+
+
+🔸 1. Add a New Property to Each Object
+const arr = [{ name: "siva" }, { name: "ram" }, { name: "ravi" }];
+
+const updated = arr.map((person, index) => {
+  return {
+    ...person,
+    id: index + 1,
+    active: true
+  };
+});
+
+console.log(updated);
+
+🟢 Output:
+
+[
+  { name: "siva", id: 1, active: true },
+  { name: "ram", id: 2, active: true },
+  { name: "ravi", id: 3, active: true }
+]
+
+🔸 2. Wrap Each Name with Greeting
+
+const greetingList = arr.map(person => `Hello, ${person.name}!`);
+
+console.log(greetingList);
+
+🟢 Output:
+[ 'Hello, siva!', 'Hello, ram!', 'Hello, ravi!' ]
+
+
+🔸 3. Create HTML <li> Elements
+
+const htmlList = arr.map(person => `<li>${person.name}</li>`);
+
+console.log(htmlList.join('\n'));
+
+🟢 Output:
+
+<li>siva</li>
+<li>ram</li>
+<li>ravi</li>
+
+
+🔸 4. Name Length Calculation
+
+const nameLengths = arr.map(person => ({
+  name: person.name,
+  length: person.name.length
+}));
+
+console.log(nameLengths);
+
+🟢 Output:
+
+[
+  { name: 'siva', length: 4 },
+  { name: 'ram', length: 3 },
+  { name: 'ravi', length: 4 }
+]
+
+🔸 5. Conditional Additions
+const labeled = arr.map(person => ({
+  name: person.name,
+  role: person.name === "siva" ? "Admin" : "User"
+}));
+
+console.log(labeled);
+
+🟢 Output:
+[
+  { name: "siva", role: "Admin" },
+  { name: "ram", role: "User" },
+  { name: "ravi", role: "User" }
+]
+
+🔸 6. Using Index in the Output
+
+const indexed = arr.map((person, index) => ({
+  ...person,
+  display: `${index + 1}. ${person.name}`
+}));
+
+console.log(indexed);
+
+🟢 Output:
+
+[
+  { name: "siva", display: "1. siva" },
+  { name: "ram", display: "2. ram" },
+  { name: "ravi", display: "3. ravi" }
+]
+
+🔸 7. Debug map() Parameters
+
+const debugMap = arr.map((value, index, array) => {
+  console.log("Value:", value);
+  console.log("Index:", index);
+  console.log("Full Array:", array);
+  return value.name;
+});
+
+console.log("Final:", debugMap);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
