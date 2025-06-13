@@ -1,0 +1,169 @@
+🟩 1. JavaScript Array Operations (From Basics to Advanced)
+
+🔸 1.1 push()
+Adds one or more elements to the end of an array.
+
+let arr = [1, 2];
+arr.push(3); // [1, 2, 3]
+
+
+🔸 1.2 pop()
+Removes the last element from an array.
+
+let arr = [1, 2, 3];
+arr.pop(); // [1, 2]
+
+
+🔸 1.3 shift()
+Removes the first element.
+
+let arr = [1, 2, 3];
+arr.shift(); // [2, 3]
+
+
+🔸 1.4 unshift()
+Adds one or more elements to the beginning.
+
+arr.unshift(0); // [0, 2, 3]
+
+🔸 1.5 slice(start, end)
+Returns a shallow copy from start to end (excluding end).
+
+let arr = [1, 2, 3, 4];
+arr.slice(1, 3); // [2, 3]
+
+
+🔸 1.6 splice(start, deleteCount, ...items)
+Can add/remove/replace elements in-place.
+
+let arr = [1, 2, 3, 4];
+arr.splice(1, 2); // [1, 4]
+arr.splice(1, 0, 99); // [1, 99, 4]
+
+
+🔸 1.7 find(callback)
+Returns the first element that matches the condition.
+
+let arr = [1, 2, 3];
+arr.find(num => num > 1); // 2
+
+
+🔸 1.8 filter(callback)
+Returns all matching elements as a new array.
+
+arr.filter(num => num > 1); // [2, 3]
+
+
+🔸 1.9 map(callback)
+Transforms each element and returns a new array.
+
+arr.map(num => num * 2); // [2, 4, 6]
+
+
+🔸 1.10 reduce(callback, initialValue)
+Reduces the array to a single value.
+
+arr.reduce((acc, curr) => acc + curr, 0); // sum
+
+
+🔸 1.11 includes()
+Checks if a value exists.
+
+arr.includes(2); // true
+
+
+🔸 1.12 indexOf() / lastIndexOf()
+
+arr.indexOf(2); // returns index
+
+
+🔸 1.13 forEach()
+Runs a function on each item (no return).
+
+arr.forEach((val, i) => console.log(i, val));
+
+
+
+🟦 2. Callback Functions & Chaining
+
+🔸 2.1 Callback Function
+
+A function passed as an argument to another function.
+
+function greet(name, callback) {
+  console.log("Hi " + name);
+  callback();
+}
+function sayBye() {
+  console.log("Bye!");
+}
+greet("Siva", sayBye);
+
+
+🔸 2.2 Array Methods Use Callbacks
+
+[1, 2, 3].map(function(num) {
+  return num * 2;
+});
+
+
+🔸 2.3 Chaining Methods
+Using multiple methods in a row:
+
+const result = [1, 2, 3, 4, 5]
+  .filter(num => num > 2)
+  .map(num => num * 2)
+  .reduce((acc, curr) => acc + curr, 0);
+
+console.log(result); // 24
+
+
+🟨 3. DOM Manipulation (Deep Dive)
+
+
+🔸 3.1 Accessing DOM Elements
+
+document.getElementById('id')
+document.querySelector('.class')
+document.getElementsByTagName('div')
+
+
+🔸 3.2 Changing Content
+
+document.getElementById('demo').innerText = "Hello";
+document.getElementById('demo').innerHTML = "<b>Hello</b>";
+
+
+🔸 3.3 Changing Styles
+
+document.getElementById('box').style.backgroundColor = 'red';
+
+
+🔸 3.4 Creating & Appending Elements
+
+let newEl = document.createElement("p");
+newEl.innerText = "New Paragraph";
+document.body.appendChild(newEl);
+
+
+🔸 3.5 Removing Elements
+
+let elem = document.getElementById("demo");
+elem.remove();
+
+
+🔸 3.6 Event Handling
+
+document.getElementById("btn").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+
+
+🧠 4. Virtual DOM vs Real DOM
+
+| Feature       | Real DOM               | Virtual DOM               |
+| ------------- | ---------------------- | ------------------------- |
+| Speed         | Slower updates         | Faster (diffing method)   |
+| Update Method | Updates the whole tree | Updates only changed part |
+| Used in       | Plain JS               | React, Vue, etc.          |
+
