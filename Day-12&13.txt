@@ -1,0 +1,190 @@
+✅ HTML, CSS & Bootstrap
+🔹 HTML (HyperText Markup Language)
+Defines structure of web pages using elements like:
+
+<div>, <h1> to <h6>, <p>, <img>, <a>, <form>, <table>, etc.
+
+Attributes: id, class, href, src, alt, style, name, etc.
+
+Semantic Tags: <article>, <section>, <nav>, <header>, <footer>
+
+🔹 CSS (Cascading Style Sheets)
+Used for styling HTML content
+
+Syntax: selector { property: value; }
+
+Types:
+
+Inline CSS
+
+Internal CSS (<style>)
+
+External CSS (<link rel="stylesheet">)
+
+Box Model: margin, border, padding, content
+
+Responsive Design: Media queries (@media)
+
+Flexbox & Grid for layout
+
+🔹 Bootstrap
+A CSS framework for responsive design
+
+Uses pre-defined classes for layout (.container, .row, .col-md-6)
+
+Components: Buttons, Modals, Navbar, Carousel, etc.
+
+Utilities: spacing, text, shadows, etc.
+
+✅ JavaScript – Core to Advanced
+🔹 Data Types
+Primitive: Number, String, Boolean, Null, Undefined, Symbol, BigInt
+
+Non-Primitive: Object, Array, Function
+
+🔹 Variable Declarations
+var: Function-scoped, hoisted
+
+let: Block-scoped, not hoisted
+
+const: Block-scoped, constant reference (not immutable)
+
+🔹 Scope
+Global Scope: Available everywhere
+
+Function Scope: Variables declared inside a function
+
+Block Scope: With let and const in { }
+
+🔹 Hoisting
+JavaScript lifts declarations (not initializations) to the top
+
+var is hoisted with undefined
+
+let and const are hoisted but stay in Temporal Dead Zone (TDZ)
+
+🔹 Memory Phases
+Memory Creation Phase: Variables/functions stored in memory
+
+Execution Phase: Code runs line by line, values assigned
+
+🔹 Functions
+Define reusable logic
+
+function greet(name) {
+  return "Hello, " + name;
+}
+Parameters vs Arguments
+
+Return statements
+
+Real-World Use: Event handling, calculations, data processing
+
+✅ Arrays, Objects & Array of Objects
+🔹 Arrays
+
+let arr = [1, 2, 3];
+Indexed collections of items
+
+Methods: push(), pop(), slice(), splice(), map(), filter()
+
+🔹 Objects
+
+let user = { name: "Alex", age: 25 };
+Key-value pairs
+
+Access: user.name or user["age"]
+
+🔹 Array of Objects
+
+let students = [{name:"A"}, {name:"B"}];
+Useful for structured data
+
+Often used with map(), filter(), find()
+
+✅ Loops
+for: Standard loop
+
+for (let i = 0; i < 5; i++) console.log(i);
+forEach: Array method, doesn't return anything
+
+map: Returns a new array
+
+Use map when transforming data, for for custom logic, and forEach for side effects
+
+✅ Error Types
+ReferenceError: Accessing an undefined variable
+
+TypeError: Incorrect operation on a data type
+
+SyntaxError: Invalid code structure
+
+✅ Array Methods
+
+🔹 find()
+Returns the first element that matches a condition
+
+arr.find(x => x > 5);
+
+🔹 filter()
+Returns all elements matching the condition
+
+arr.filter(x => x > 5);
+
+🔹 reduce()
+Accumulates a value by applying a function
+
+arr.reduce((acc, val) => acc + val, 0);
+🔹 slice(start, end)
+Returns shallow copy of array
+
+arr.slice(1, 3);
+
+🔹 splice(start, deleteCount, item1, item2)
+Modifies array in-place
+
+arr.splice(2, 0, "inserted");
+
+🔹 push() and pop()
+
+push(): Add to end
+
+pop(): Remove from end
+
+✅ Callback Functions & Chaining
+🔹 Callback Function
+
+A function passed as an argument to another function
+
+function greet(callback) {
+  callback("World");
+}
+
+🔹 Chaining
+Calling methods one after the other
+
+arr.filter(x => x > 2).map(x => x * 2).reduce((a, b) => a + b);
+
+✅ DOM Manipulation
+DOM: Document Object Model – tree structure of HTML elements
+
+Select Elements:
+
+getElementById, querySelector, getElementsByClassName
+
+Modify:
+
+element.innerText, element.innerHTML, element.style, element.classList
+
+Events:
+
+element.addEventListener("click", function() {...});
+
+✅ Virtual DOM vs JS DOM:-
+  
+  | Feature          | JavaScript DOM | Virtual DOM              |
+| ---------------- | -------------- | ------------------------ |
+| Type             | Real DOM       | In-memory representation |
+| Speed            | Slower updates | Faster updates           |
+| Change Detection | Manual         | Uses diffing algorithm   |
+| Used in          | Vanilla JS     | React, Vue, etc.         |
